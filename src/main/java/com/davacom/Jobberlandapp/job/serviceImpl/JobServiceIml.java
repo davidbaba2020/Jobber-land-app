@@ -48,15 +48,16 @@ public class JobServiceIml implements JobService {
 
     @Override
     public Job updateJob(Long id, String tittle, String location) {
+        System.out.println("Before update "+jobs);
         for (Job job: jobs) {
             if(Objects.equals(job.getId(), id)){
-                jobs.remove(job);
                 job.setTittle(tittle);
                 job.setLocation(location);
-                jobs.add(job);
+                System.out.println("After jobs"+jobs);
                 return job;
             }
         }
+
         return null;
     }
 
